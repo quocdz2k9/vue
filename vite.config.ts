@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
@@ -15,15 +16,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  // BỎ đoạn server cũ đi hoặc để trống thế này là Vercel chạy được
   server: {
-    host: true, // Cho phép listen trên tất cả IP
-    allowedHosts: 'all', // Cho phép tất cả các host
-    strictPort: true,
-    // Thêm dòng này để fix lỗi chặn host của một số bản Vite đặc biệt
-    cors: true,
-    hmr: {
-      host: 'stoic-hungry-balcony.ngrok-free.dev', // Link ngrok của bạn
-    }
+    host: true
   }
 })
 
