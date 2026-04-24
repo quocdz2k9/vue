@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/payos-proxy/(.*)",
+      "destination": "https://api-merchant.payos.vn/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
